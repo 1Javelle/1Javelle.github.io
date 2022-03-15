@@ -31,30 +31,25 @@ var init = function (window) {
             circles.push(circle);
         }
 
-        // TODO 3 / 8 : Call the drawCircle() function
+        // TODO 3 / 8 : Call the drawCircle() function//
+        for(var i = 0; i < 100;i++){
             drawCircle();
-            drawCircle();
-            drawCircle();
-            drawCircle();
-            drawCircle();
+        }
+            
+           
 
             // TODO 4 : Update the circle's position //
             function update() {
-
- 	physikz.updatePosition();
- 	physikz.updatePosition();
- 	physikz.updatePosition();
- 	physikz.updatePosition();
- 	physikz.updatePosition();
- }
-
+                for (var i = 0; i < 100; i++){
+                    physikz.updatePosition(circles[i]);
+                    game.checkCirclePosition(circles[i]);
+                }
+ 	     
+            }
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-            game.checkCirclePosition();
-            game.checkCirclePosition();
-            game.checkCirclePosition();
-            game.checkCirclePosition();
-            game.checkCirclePosition();
 
+          
+        
             // TODO 9 : Iterate over the array
         
     
@@ -69,9 +64,18 @@ var init = function (window) {
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
             }
-            
+            if(circle.x < 0) {
+                circle.x = canvas.width;
+            }
+            if (circle.y < canvas.height){
+                circle = 0;
+            }
+            if (circle.y > 0){
+                circle.y = canvas.height;
+            }
             // TODO 7 : YOUR CODE STARTS HERE //////////////////////
             
+
 
 
             // YOUR TODO 7 CODE ENDS HERE //////////////////////////
